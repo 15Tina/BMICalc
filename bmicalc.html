@@ -1,0 +1,97 @@
+<html>
+<header>
+    BMI Calculator
+</header>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        color: rgb(6, 34, 61);
+        font-family: Helvetica neue, roboto;
+    }
+  .my-row {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+  }
+
+  .bmi-label {
+        margin: 20px 20px;
+        background-color: aliceblue;
+        color:rgb(6, 34, 61);
+  }
+
+  #progressBar {
+    width: 300px;
+    margin: 20px 20px;
+    border: 2px solid rgb(3, 3, 34);
+  }
+
+</style>
+<body>
+<div class="my-row">
+    Name: 
+<input type="text" id="name" value="" placeholder="Please enter name"/> </div>
+<div class="my-row">
+    Height: 
+<input type="number" id="height" value="" placeholder="Please enter height"/></div>
+<div class="my-row">
+    Weight: 
+<input type="number" id="weight" value=""placeholder="Please enter weight"/> </div>
+<div class="my-row">
+    Email: 
+<input type="email" id="email"  value="" placeholder="Please enter email"/> </div>
+
+<div id="progressBar" >
+    <button id=10>
+        10%
+    </button>
+    <button id="30">
+        30%
+    </button>
+    <button id="60">
+        60%
+    </button>
+    <button id="100">
+        100%
+    </button>
+</div>
+<button onclick="bmiCalculate()">Calculate BMI</button>
+
+
+<label id="bmi" class="bmi-label">BMI</label>
+</body>
+
+<script>
+   
+    function showProgress() {
+     document.getElementById("10").style.backgroundColor='Red';
+       setTimeout(() => {
+        document.getElementById("30").style.backgroundColor='Yellow';
+       }, 2000);
+       setTimeout(() => {
+        document.getElementById("60").style.backgroundColor='Yellow';
+       }, 3000);
+
+       setTimeout(() => {
+        document.getElementById("100").style.backgroundColor='Green';
+       }, 4000);
+    }
+    function bmiCalculate() {
+        var name = document.getElementById("name").value;
+        var height = document.getElementById("height").value;
+        var weight = document.getElementById("weight").value;
+        var email = document.getElementById("email").value;
+
+        var BMI = 0;
+        // BMI = Weight (in Kgs) / Height^2 (in meters)
+        BMI = weight / (height*height);
+        document.getElementById("bmi").innerText = "BMI is "+BMI;
+        showProgress();
+
+        console.log("BMI is" + BMI);
+    }
+
+</script>
+
+</html>
